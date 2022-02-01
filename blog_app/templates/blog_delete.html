@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="w-50 mx-auto">
+    <form action="" method="post">
+        <h1>Are you sure you want to delete '{{ blog.title }}'</h1>
+        {% csrf_token %}
+        {{ form | crispy }}
+        <br>
+        <input class="btn btn-danger" type="submit" value="Yes">
+        <a class="btn btn-secondary" href="{% url 'blog_detail' blog.id %}">No</a>
+    </form>
+</div>
+{% endblock content %}
